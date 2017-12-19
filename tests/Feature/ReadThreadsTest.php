@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Reply;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
@@ -30,5 +31,15 @@ class ReadThreadsTest extends TestCase
         $response = $this->get('/threads/' . $this->thread->id);
 
         $response->assertSee($this->thread->title);
+    }
+
+    /** @test */
+    public function a_user_can_read_replies_that_are_associated_with_a_thread()
+    {
+        $reply = factory(Reply::class)->create(['thread_id' => $this->thread->id]);
+
+        $response = $this->get('/threads/' . $this->thread->id);
+
+        $response->assertSee($reply->body);
     }
 }
