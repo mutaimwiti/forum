@@ -10,7 +10,7 @@ class Reply extends Model
 
     protected $guarded = [];
 
-    protected $with = ['owner', 'favorites', 'channel'];
+    protected $with = ['owner', 'favorites']; //TODO: re-add channel
 
     public function owner()
     {
