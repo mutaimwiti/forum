@@ -31,6 +31,12 @@
     </div>
 
     <!-- Scripts -->
+    <script>
+        window.App = {!! json_encode([
+            'user' => Auth::user(),
+            'signedIn' => Auth::check()
+        ]) !!};
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
