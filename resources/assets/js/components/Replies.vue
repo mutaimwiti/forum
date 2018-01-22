@@ -41,7 +41,7 @@
                     page = query ? query[1] : 1;
                 }
 
-                return `${location.pathname}/replies?page=${page}`;
+                return `${location.pathname}replies?page=${page}`;
             },
 
             refresh({data}) {
